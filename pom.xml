@@ -8,6 +8,10 @@
     <artifactId>JEE_Unit_7.1.08_StudyCase</artifactId>
     <version>1.0</version>
 
+    <properties>
+        <main.class>com.company.Main</main.class>
+    </properties>
+
     <build>
         <defaultGoal>package</defaultGoal>
 
@@ -48,6 +52,29 @@
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <workingDirectory>${project.build.directory}</workingDirectory>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>${project.build.finalName}</argument>
+                    </arguments>
+                    <mainClass>${main.class}</mainClass>
+                    <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Main-execution</id>
+                        <goals>
+                            <goal>java</goal>
                         </goals>
                     </execution>
                 </executions>
