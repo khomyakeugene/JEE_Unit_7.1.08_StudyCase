@@ -21,10 +21,10 @@ public class Employee {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Position position;
 
-
+    @Column(name = "salary")
     private Float salary;
 
 }
