@@ -3,6 +3,7 @@ package com.company.model.hibernate;
 import com.company.model.Employee;
 import com.company.model.EmployeeDao;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class HEmployeeDao implements EmployeeDao {
     }
 
     @Override
+    @Transactional
     public void save(Employee employee) {
         sessionFactory.getCurrentSession().save(employee);
     }

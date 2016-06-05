@@ -3,5 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="main" class="com.company.Main"/>
+    <bean class="com.company.model.hibernate.HEmployeeDao" id="employeeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="com.company.model.controllers.EmployeeController" id="employeeController">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+
+    <bean id="main" class="com.company.Main">
+        <property name="employeeController" ref="employeeController"/>
+    </bean>
+
+    <import resource="hibernate-config.xml"/>
 </beans>
