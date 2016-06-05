@@ -20,7 +20,6 @@ public class EmployeeController {
     public void createEmployee() {
         Employee employee = new Employee();
 
-        //employee.setId(1L);
         employee.setName("John");
         employee.setSurname("Smith");
         employee.setPosition(Position.WAITER);
