@@ -97,6 +97,7 @@ public class Employee {
 
     @Override
     public int hashCode() {
+
         int result = surname != null ? surname.hashCode() : 0;
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
