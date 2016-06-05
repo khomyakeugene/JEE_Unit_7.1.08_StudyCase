@@ -22,6 +22,7 @@ public class Employee {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "position")
     private Position position;
 
     @Column(name = "salary")
