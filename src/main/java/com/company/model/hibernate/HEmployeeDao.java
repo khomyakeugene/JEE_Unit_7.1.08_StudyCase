@@ -33,4 +33,9 @@ public class HEmployeeDao implements EmployeeDao {
     public List<Employee> findAll() {
         return null;
     }
+
+    @Override
+    public void remove(Employee employee) {
+        sessionFactory.getCurrentSession().delete(employee);
+    }
 }

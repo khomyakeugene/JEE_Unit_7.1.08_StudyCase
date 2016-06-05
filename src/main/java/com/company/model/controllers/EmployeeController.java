@@ -5,6 +5,9 @@ import com.company.model.EmployeeDao;
 import com.company.model.Position;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Yevhen on 05.06.2016.
  */
@@ -17,7 +20,9 @@ public class EmployeeController {
     }
 
     @Transactional
-    public void createEmployee() {
+    public Employee createEmployee() {
+        Set<Employee> allEmployees = new HashSet<>(employeeDao.findAll());
+
         Employee employee = new Employee();
 
         employee.setName("John");
@@ -25,7 +30,10 @@ public class EmployeeController {
         employee.setPosition(Position.WAITER);
         employee.setPhoneNumber("555-55-55");
         employee.setSalary(25000.0F);
+        if (!allEmployees.contains(employee)) {
+            employeeDao.save(employee);
+        }
 
-        employeeDao.save(employee);
+        return employee;
     }
 }

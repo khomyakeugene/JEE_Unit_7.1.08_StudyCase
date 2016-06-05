@@ -11,4 +11,6 @@ public interface EmployeeDao {
     Employee load(Long id);
 
     List<Employee> findAll();
+
+    void remove(Employee employee);
 }
