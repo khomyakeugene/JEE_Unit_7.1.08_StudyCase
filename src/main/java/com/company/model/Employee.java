@@ -1,5 +1,7 @@
 package com.company.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "employee")
 public class Employee {
     @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
     private Long id;
 
