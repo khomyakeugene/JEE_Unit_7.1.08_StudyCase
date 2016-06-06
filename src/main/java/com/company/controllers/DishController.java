@@ -56,4 +56,9 @@ public class DishController {
     public List<Dish> getAllDishes() {
         return dishDao.findAll();
     }
+
+    @Transactional
+    public Dish getDishByName(String name) {
+        return dishDao.findByName(name);
+    }
 }

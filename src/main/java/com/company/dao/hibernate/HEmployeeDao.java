@@ -2,11 +2,12 @@ package com.company.dao.hibernate;
 
 import com.company.model.Employee;
 import com.company.dao.EmployeeDao;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -35,16 +36,17 @@ public class HEmployeeDao implements EmployeeDao {
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
 
-        return (List<Employee>)session.createQuery("select e from Employee e").list();
+        return session.createQuery("select e from Employee e", Employee.class).list();
     }
 
     @Override
     public Employee findByName(String name) {
         Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery("select e from Employee e where e.name like :name");
+        Query<Employee> query = session.createQuery("select e from Employee e where e.name like :name", Employee.class);
         query.setParameter("name", name);
-        return (Employee)query.uniqueResult();
+
+        return query.uniqueResult();
     }
 
     @Override
