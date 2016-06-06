@@ -13,7 +13,7 @@ public class Employee {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id")
+    @Column(name = "employee_id")
     private Long id;
 
     @Column(name = "name")
@@ -87,12 +87,14 @@ public class Employee {
 
         Employee employee = (Employee) o;
 
-        if (name != null ? !name.equals(employee.name) : employee.name != null) return false;
-        if (surname != null ? !surname.equals(employee.surname) : employee.surname != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(employee.phoneNumber) : employee.phoneNumber != null)
-            return false;
+        return name != null ? name.equals(employee.name) :
+                employee.name == null && (surname != null ?
+                        surname.equals(employee.surname) :
+                        employee.surname == null && (phoneNumber != null ?
+                                phoneNumber.equals(employee.phoneNumber) :
+                                employee.phoneNumber == null && position == employee.position &&
+                                        (salary != null ? salary.equals(employee.salary) : employee.salary == null)));
 
-        return position == employee.position && (salary != null ? salary.equals(employee.salary) : employee.salary == null);
     }
 
     @Override
