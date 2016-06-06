@@ -1,7 +1,5 @@
 package com.company.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -11,9 +9,9 @@ import javax.persistence.*;
 @Table(name = "employee")
 public class Employee {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "employee_id")
+    @SequenceGenerator(name = "pk_employee", sequenceName = "employee_employee_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_employee")
+    @Column(name = "employee_id", unique = true, nullable = false)
     private Long id;
 
     @Column(name = "name")
@@ -104,5 +102,17 @@ public class Employee {
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + (salary != null ? salary.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", position=" + position +
+                ", salary=" + salary +
+                '}';
     }
 }

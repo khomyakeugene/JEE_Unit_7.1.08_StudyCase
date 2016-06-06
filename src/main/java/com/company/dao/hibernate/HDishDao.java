@@ -4,6 +4,8 @@ import com.company.model.Dish;
 import com.company.dao.DishDao;
 import org.hibernate.SessionFactory;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 06.06.2016.
  */
@@ -17,5 +19,10 @@ public class HDishDao implements DishDao {
     @Override
     public void save(Dish dish) {
         sessionFactory.getCurrentSession().save(dish);
+    }
+
+    @Override
+    public List<Dish> findAll() {
+        return sessionFactory.getCurrentSession().createQuery("select d from Dish d").list();
     }
 }

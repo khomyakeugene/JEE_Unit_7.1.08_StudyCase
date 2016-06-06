@@ -3,6 +3,11 @@ package com.company.controllers;
 import com.company.dao.DishDao;
 import com.company.model.Dish;
 import com.company.model.DishCategory;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Yevhen on 06.06.2016.
@@ -15,6 +20,7 @@ public class DishController {
         this.dishDao = dishDao;
     }
 
+    @Transactional
     public void createDish() {
         Dish plov = new Dish();
         plov.setName("Plov");
@@ -34,8 +40,20 @@ public class DishController {
         potato.setPrice(3.00F);
         potato.setWeight(0.100F);
 
-        dishDao.save(plov);
-        dishDao.save(salad);
-        dishDao.save(potato);
+        Set<Dish> dishes = new HashSet<>(dishDao.findAll());
+        if (!dishes.contains(plov)) {
+            dishDao.save(plov);
+        }
+        if (!dishes.contains(salad)) {
+            dishDao.save(salad);
+        }
+        if (!dishes.contains(potato)) {
+            dishDao.save(potato);
+        }
+    }
+
+    @Transactional
+    public List<Dish> getAllDishes() {
+        return dishDao.findAll();
     }
 }

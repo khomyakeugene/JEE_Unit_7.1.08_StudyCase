@@ -1,8 +1,5 @@
 package com.company.model;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -10,12 +7,14 @@ import java.util.List;
 /**
  * Created by Yevhen on 06.06.2016.
  */
+@Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "order_id")
+    @SequenceGenerator(name = "pk_orders", sequenceName = "orders_order_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_orders")
+    @Column(name = "order_id", unique = true, nullable = false)
     private long id;
 
     @ManyToOne

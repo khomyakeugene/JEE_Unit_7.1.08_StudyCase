@@ -3,7 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="hibernate-config.xml"/>
+
     <bean class="com.company.dao.hibernate.HEmployeeDao" id="employeeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="com.company.dao.hibernate.HDishDao" id="dishDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="com.company.dao.hibernate.HOrderDao" id="orderDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
@@ -11,9 +21,12 @@
         <property name="employeeDao" ref="employeeDao"/>
     </bean>
 
-    <bean id="main" class="com.company.Main">
-        <property name="employeeController" ref="employeeController"/>
+    <bean class="com.company.controllers.DishController" id="dishController">
+        <property name="dishDao" ref="dishDao"/>
     </bean>
 
-    <import resource="hibernate-config.xml"/>
+    <bean id="main" class="com.company.Main">
+        <property name="employeeController" ref="employeeController"/>
+        <property name="dishController" ref="dishController"/>
+    </bean>
 </beans>
