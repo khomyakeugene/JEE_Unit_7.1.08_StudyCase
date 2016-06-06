@@ -42,4 +42,9 @@ public class EmployeeController {
     public List<Employee> getAllEmployees() {
         return employeeDao.findAll();
     }
+
+    @Transactional
+    public Employee getEmployeeByName(String name) {
+        return employeeDao.findByName(name);
+    }
 }
