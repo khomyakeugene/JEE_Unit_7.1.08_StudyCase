@@ -35,4 +35,44 @@ public class Order {
 
     @Column(name = "order_datetime")
     private Timestamp orderDateTime;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Employee getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(Employee waiter) {
+        this.waiter = waiter;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
+    public Timestamp getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    public void setOrderDateTime(Timestamp orderDateTime) {
+        this.orderDateTime = orderDateTime;
+    }
 }
