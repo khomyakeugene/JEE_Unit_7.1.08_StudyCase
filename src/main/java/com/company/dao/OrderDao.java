@@ -1,4 +1,6 @@
-package com.company.model;
+package com.company.dao;
+
+import com.company.model.Order;
 
 /**
  * Created by Yevhen on 06.06.2016.

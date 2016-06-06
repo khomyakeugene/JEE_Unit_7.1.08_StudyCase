@@ -1,4 +1,6 @@
-package com.company.model;
+package com.company.dao;
+
+import com.company.model.Employee;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ public interface EmployeeDao {
 
     Employee load(Long id);
 
-    List findAll();
+    List<Employee> findAll();
 
     void remove(Employee employee);
 }

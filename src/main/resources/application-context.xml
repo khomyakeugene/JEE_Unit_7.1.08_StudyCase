@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="com.company.model.hibernate.HEmployeeDao" id="employeeDao">
+    <bean class="com.company.dao.hibernate.HEmployeeDao" id="employeeDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean class="com.company.model.controllers.EmployeeController" id="employeeController">
+    <bean class="com.company.controllers.EmployeeController" id="employeeController">
         <property name="employeeDao" ref="employeeDao"/>
     </bean>
 

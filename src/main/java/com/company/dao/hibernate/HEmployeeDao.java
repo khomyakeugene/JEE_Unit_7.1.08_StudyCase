@@ -1,7 +1,7 @@
-package com.company.model.hibernate;
+package com.company.dao.hibernate;
 
 import com.company.model.Employee;
-import com.company.model.EmployeeDao;
+import com.company.dao.EmployeeDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +33,8 @@ public class HEmployeeDao implements EmployeeDao {
     @Override
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select e from Employee e").list();
+
+        return (List<Employee>)session.createQuery("select e from Employee e").list();
     }
 
     @Override

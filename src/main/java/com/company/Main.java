@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.model.controllers.EmployeeController;
+import com.company.controllers.EmployeeController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

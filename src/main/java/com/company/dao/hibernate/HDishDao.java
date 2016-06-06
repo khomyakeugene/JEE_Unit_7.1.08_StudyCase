@@ -1,7 +1,7 @@
-package com.company.model.hibernate;
+package com.company.dao.hibernate;
 
 import com.company.model.Dish;
-import com.company.model.DishDao;
+import com.company.dao.DishDao;
 
 /**
  * Created by Yevhen on 06.06.2016.

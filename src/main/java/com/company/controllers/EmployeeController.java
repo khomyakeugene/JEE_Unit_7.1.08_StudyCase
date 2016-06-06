@@ -1,7 +1,7 @@
-package com.company.model.controllers;
+package com.company.controllers;
 
 import com.company.model.Employee;
-import com.company.model.EmployeeDao;
+import com.company.dao.EmployeeDao;
 import com.company.model.Position;
 import org.springframework.transaction.annotation.Transactional;
 

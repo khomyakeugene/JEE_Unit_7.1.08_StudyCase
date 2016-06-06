@@ -1,7 +1,7 @@
-package com.company.model.hibernate;
+package com.company.dao.hibernate;
 
 import com.company.model.Order;
-import com.company.model.OrderDao;
+import com.company.dao.OrderDao;
 
 /**
  * Created by Yevhen on 06.06.2016.
