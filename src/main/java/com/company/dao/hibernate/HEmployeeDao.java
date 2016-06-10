@@ -36,7 +36,7 @@ public class HEmployeeDao implements EmployeeDao {
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select e from Employee e", Employee.class).list();
+        return session.createQuery("from Employee", Employee.class).list();
     }
 
     @Override

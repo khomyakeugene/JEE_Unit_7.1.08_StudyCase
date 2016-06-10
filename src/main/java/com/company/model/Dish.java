@@ -1,7 +1,5 @@
 package com.company.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
