@@ -25,7 +25,7 @@ public class HDishDao implements DishDao {
 
     @Override
     public List<Dish> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("from Dish", Dish.class).list();
+        return sessionFactory.getCurrentSession().createQuery("FROM Dish ORDER BY id", Dish.class).list();
     }
 
     @Override
