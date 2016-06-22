@@ -6,6 +6,9 @@ import com.company.controllers.OrderController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     private static final String EMPLOYEE_NAME_FOR_NAME = "John";
     private static final String DISH_NAME_FOR_SEARCH = "Plov";
@@ -36,6 +39,17 @@ public class Main {
         employeeController.createEmployee();
         dishController.createDish();
 
+        List<String> dishes1 = new ArrayList<>();
+        dishes1.add("Plov");
+        dishes1.add("Salad");
+        orderController.createOrder("John", dishes1, 1);
+
+        List<String> dishes2 = new ArrayList<>();
+        dishes2.add("Potato");
+        dishes2.add("Salad");
+        orderController.createOrder("John", dishes2, 2);
+
+        /*
         System.out.println("All employees:");
         employeeController.getAllEmployees().forEach(System.out::println);
 
@@ -47,5 +61,8 @@ public class Main {
 
         System.out.println("Dish with name " + DISH_NAME_FOR_SEARCH);
         System.out.println(dishController.getDishByName(DISH_NAME_FOR_SEARCH));
+        */
+
+        orderController.printAllOrders();
     }
 }

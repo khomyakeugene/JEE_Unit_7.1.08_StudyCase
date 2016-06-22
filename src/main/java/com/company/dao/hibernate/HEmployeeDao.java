@@ -34,7 +34,7 @@ public class HEmployeeDao implements EmployeeDao {
 
     @Override
     public List<Employee> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("from Employee", Employee.class).list();
+        return sessionFactory.getCurrentSession().createQuery("FROM Employee", Employee.class).list();
     }
 
     @Override

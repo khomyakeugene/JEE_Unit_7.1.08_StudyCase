@@ -74,4 +74,15 @@ public class Order {
     public void setOrderDateTime(Timestamp orderDateTime) {
         this.orderDateTime = orderDateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", waiter=" + waiter +
+                ", dishes=" + dishes +
+                ", tableNumber=" + tableNumber +
+                ", orderDateTime=" + orderDateTime +
+                '}';
+    }
 }
