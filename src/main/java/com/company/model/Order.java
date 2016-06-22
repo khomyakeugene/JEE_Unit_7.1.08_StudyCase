@@ -24,8 +24,8 @@ public class Order {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "dish_to_order",
-            joinColumns = @JoinColumn(name = "dish_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_id")
     )
     private List<Dish> dishes;
 
