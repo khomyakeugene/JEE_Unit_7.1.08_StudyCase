@@ -17,8 +17,8 @@ public class Dish {
     @Column(name = "name")
     private String name;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "category")
+    @Enumerated(EnumType.STRING)
     private DishCategory category;
 
     @Column(name = "price")
