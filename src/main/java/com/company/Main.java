@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.controllers.DishController;
 import com.company.controllers.EmployeeController;
+import com.company.controllers.OrderController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,6 +10,7 @@ public class Main {
 
     private EmployeeController employeeController;
     private DishController dishController;
+    private OrderController orderController;
 
     public void setDishController(DishController dishController) {
         this.dishController = dishController;
@@ -16,6 +18,10 @@ public class Main {
 
     public void setEmployeeController(EmployeeController employeeController) {
         this.employeeController = employeeController;
+    }
+
+    public void setOrderController(OrderController orderController) {
+        this.orderController = orderController;
     }
 
     public static void main(String[] args) {

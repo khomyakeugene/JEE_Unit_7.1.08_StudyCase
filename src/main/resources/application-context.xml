@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+default-autowire="byName">
 
     <import resource="hibernate-config.xml"/>
 
-    <bean class="com.company.dao.hibernate.HEmployeeDao" id="employeeDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean class="com.company.dao.hibernate.HEmployeeDao" id="employeeDao"/>
+    <bean class="com.company.dao.hibernate.HDishDao" id="dishDao"/>
+    <bean class="com.company.dao.hibernate.HOrderDao" id="orderDao"/>
 
-    <bean class="com.company.dao.hibernate.HDishDao" id="dishDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean class="com.company.controllers.EmployeeController" id="employeeController"/>
+    <bean class="com.company.controllers.DishController" id="dishController"/>
 
-    <bean class="com.company.dao.hibernate.HOrderDao" id="orderDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean class="com.company.controllers.EmployeeController" id="employeeController">
-        <property name="employeeDao" ref="employeeDao"/>
-    </bean>
-
-    <bean class="com.company.controllers.DishController" id="dishController">
-        <property name="dishDao" ref="dishDao"/>
-    </bean>
-
-    <bean id="main" class="com.company.Main">
-        <property name="employeeController" ref="employeeController"/>
-        <property name="dishController" ref="dishController"/>
-    </bean>
+    <bean id="main" class="com.company.Main"/>
 </beans>
