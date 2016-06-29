@@ -31,9 +31,17 @@ public class Waiter extends Employee {
 
     @Override
     public String toString() {
-        return "Waiter{" +
-                "orders=" + orders +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Waiter {\n");
+        sb.append("     id = ").append(getId()).append("\n");
+        sb.append("     name = ").append(getName()).append("\n");
+        sb.append("     surname = ").append(getSurname()).append("\n");
+        sb.append("     orders = {\n");
+        orders.forEach(order -> sb.append("     ").append(order).append("\n"));
+        sb.append("     }\n");
+        sb.append("}\n");
+
+        return sb.toString();
     }
 }
 
