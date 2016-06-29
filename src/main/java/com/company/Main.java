@@ -74,6 +74,7 @@ public class Main {
 
     private void start() {
         employeeController.printEmployee(2L);
+        employeeController.printEmployee(2L);
     }
 
     public void init() {

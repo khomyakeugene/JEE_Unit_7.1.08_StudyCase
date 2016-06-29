@@ -30,7 +30,10 @@ public class HEmployeeDao implements EmployeeDao {
     @Transactional
     @Override
     public Employee load(Long id) {
-        return null;
+        Query<Employee> query = sessionFactory.getCurrentSession().createQuery("FROM Employee WHERE id = :id", Employee.class);
+        query.setParameter("id", id);
+
+        return query.uniqueResult();
     }
 
     @Transactional
