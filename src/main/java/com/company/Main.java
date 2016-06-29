@@ -17,6 +17,12 @@ public class Main {
     private DishController dishController;
     private OrderController orderController;
 
+    private boolean reInit;
+
+    public void setReInit(boolean reInit) {
+        this.reInit = reInit;
+    }
+
     public void setDishController(DishController dishController) {
         this.dishController = dishController;
     }
@@ -31,11 +37,12 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
-        Main main = applicationContext.getBean(Main.class);
-        main.start();
+        applicationContext.getBean(Main.class).start();
     }
 
+    /*
     private void start() {
+
         employeeController.createEmployee();
         dishController.createDish();
 
@@ -49,7 +56,6 @@ public class Main {
         dishes2.add("Salad");
         orderController.createOrder("John", dishes2, 2);
 
-        /*
         System.out.println("All employees:");
         employeeController.getAllEmployees().forEach(System.out::println);
 
@@ -61,8 +67,24 @@ public class Main {
 
         System.out.println("Dish with name " + DISH_NAME_FOR_SEARCH);
         System.out.println(dishController.getDishByName(DISH_NAME_FOR_SEARCH));
-        */
 
         orderController.printAllOrders();
+    }
+*/
+
+    private void start() {
+        employeeController.printEmployee(2L);
+    }
+
+    public void init() {
+        if (reInit) {
+            orderController.removeAllOrders();
+            employeeController.removeAllEmployees();
+            dishController.removeAllDishes();
+
+            employeeController.initEmployees();
+            dishController.initDishes();
+            orderController.initOrders();
+        }
     }
 }

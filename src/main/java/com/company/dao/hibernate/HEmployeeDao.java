@@ -27,16 +27,19 @@ public class HEmployeeDao implements EmployeeDao {
         sessionFactory.getCurrentSession().save(employee);
     }
 
+    @Transactional
     @Override
     public Employee load(Long id) {
         return null;
     }
 
+    @Transactional
     @Override
     public List<Employee> findAll() {
         return sessionFactory.getCurrentSession().createQuery("FROM Employee", Employee.class).list();
     }
 
+    @Transactional
     @Override
     public Employee findByName(String name) {
         Query<Employee> query = sessionFactory.getCurrentSession().createQuery("FROM Employee WHERE name LIKE :name", Employee.class);
@@ -45,8 +48,15 @@ public class HEmployeeDao implements EmployeeDao {
         return query.uniqueResult();
     }
 
+    @Transactional
     @Override
     public void remove(Employee employee) {
         sessionFactory.getCurrentSession().delete(employee);
+    }
+
+    @Transactional
+    @Override
+    public void removeAll() {
+        sessionFactory.getCurrentSession().createQuery("DELETE FROM Employee").executeUpdate();
     }
 }

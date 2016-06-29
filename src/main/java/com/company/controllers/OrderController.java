@@ -61,4 +61,14 @@ public class OrderController {
     public void printAllOrders() {
         getAllOrders().forEach(System.out::println);
     }
+
+    @Transactional
+    public void initOrders() {
+
+    }
+
+    @Transactional
+    public void removeAllOrders() {
+        orderDao.removeAll();
+    }
 }
