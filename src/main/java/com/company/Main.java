@@ -40,38 +40,6 @@ public class Main {
         applicationContext.getBean(Main.class).start();
     }
 
-    /*
-    private void start() {
-
-        employeeController.createEmployee();
-        dishController.createDish();
-
-        List<String> dishes1 = new ArrayList<>();
-        dishes1.add("Plov");
-        dishes1.add("Salad");
-        orderController.createOrder("John", dishes1, 1);
-
-        List<String> dishes2 = new ArrayList<>();
-        dishes2.add("Potato");
-        dishes2.add("Salad");
-        orderController.createOrder("John", dishes2, 2);
-
-        System.out.println("All employees:");
-        employeeController.getAllEmployees().forEach(System.out::println);
-
-        System.out.println("All dishes:");
-        dishController.getAllDishes().forEach(System.out::println);
-
-        System.out.println("Employee with name " + EMPLOYEE_NAME_FOR_NAME);
-        System.out.println(employeeController.getEmployeeByName(EMPLOYEE_NAME_FOR_NAME));
-
-        System.out.println("Dish with name " + DISH_NAME_FOR_SEARCH);
-        System.out.println(dishController.getDishByName(DISH_NAME_FOR_SEARCH));
-
-        orderController.printAllOrders();
-    }
-*/
-
     private void start() {
         employeeController.printEmployee(2L);
         employeeController.printEmployee(2L);
