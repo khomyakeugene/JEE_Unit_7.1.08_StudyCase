@@ -16,7 +16,7 @@ default-autowire="byName">
     <bean class="com.company.controllers.OrderController" id="orderController"/>
 
     <bean id="main" class="com.company.Main" init-method="init">
-        <property name="reInit" value="false"/>
+        <property name="reInit" value="true"/>
     </bean>
 
 </beans>

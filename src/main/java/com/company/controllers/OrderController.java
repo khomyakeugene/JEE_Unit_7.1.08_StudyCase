@@ -64,7 +64,15 @@ public class OrderController {
 
     @Transactional
     public void initOrders() {
+        List<String> dishes1 = new ArrayList<>();
+        dishes1.add("Plov");
+        dishes1.add("Salad");
+        createOrder("John", dishes1, 1);
 
+        List<String> dishes2 = new ArrayList<>();
+        dishes2.add("Potato");
+        dishes2.add("Salad");
+        createOrder("John", dishes2, 2);
     }
 
     @Transactional

@@ -40,9 +40,9 @@ public class Main {
         applicationContext.getBean(Main.class).start();
     }
 
+
     private void start() {
-        employeeController.printEmployee(2L);
-        employeeController.printEmployee(2L);
+        employeeController.getAllEmployees().forEach(e -> employeeController.printEmployee(e.getId()));
     }
 
     public void init() {
